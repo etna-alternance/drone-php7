@@ -10,9 +10,9 @@ RUN apt-get install -y php7.0-cli php7.0-dev php7.0-mysql php7.0-curl php7.0-xde
 
 RUN echo 'date.timezone = "Europe/Paris"' >> /etc/php/7.0/cli/php.ini
 
-RUN mkdir /tmp/uopz && wget http://pecl.php.net/get/uopz -O - | tar -xz -C /tmp/uopz && cd /tmp/uopz/uopz* && phpize && ./configure && make && make install
+RUN mkdir /tmp/uopz && wget http://pecl.php.net/get/uopz/5.0.2 -O - | tar -xz -C /tmp/uopz && cd /tmp/uopz/uopz* && phpize && ./configure && make && make install
 RUN echo '[uopz]'                                         >> /etc/php/7.0/cli/php.ini
-RUN echo 'extension=/tmp/uopz/uopz-5.0.1/modules/uopz.so' >> /etc/php/7.0/cli/php.ini
+RUN echo 'extension=/tmp/uopz/uopz-5.0.2/modules/uopz.so' >> /etc/php/7.0/cli/php.ini
 
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
