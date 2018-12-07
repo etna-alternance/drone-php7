@@ -16,7 +16,9 @@ RUN apt-get install -y php7.0-cli \
                        php7.0-bcmath \
                        php7.0-mbstring \
                        php7.0-xml \
-                       php7.0-zip
+                       php7.0-zip \
+                       php7.0-apcu \
+                       php7.0-memcached
 
 RUN echo 'date.timezone = "Europe/Paris"' >> /etc/php/7.0/cli/php.ini
 
