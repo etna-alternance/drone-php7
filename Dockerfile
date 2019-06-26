@@ -6,7 +6,7 @@ RUN wget http://www.dotdeb.org/dotdeb.gpg
 RUN apt-key add dotdeb.gpg
 
 RUN apt-get update
-RUN apt-get install -y unzip
+RUN apt-get install -y unzip pdftk
 RUN apt-get install -y php7.0-cli \
                        php7.0-dev \
                        php7.0-mysql \
