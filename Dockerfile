@@ -5,7 +5,10 @@ RUN echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.lis
 RUN wget http://www.dotdeb.org/dotdeb.gpg
 RUN apt-key add dotdeb.gpg
 
-RUN apt-get update
+RUN echo "deb http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
+
+RUN apt-get -o Acquire::Check-Valid-Until=false update
 RUN apt-get install -y unzip pdftk
 RUN apt-get install -y php7.0-cli \
                        php7.0-dev \
